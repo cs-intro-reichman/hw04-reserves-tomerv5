@@ -32,7 +32,7 @@ public class ArrayOps {
             }
         }
         for (int i = 1; i < array.length; i++) {
-            if ((array[i] > secondMax && array[i] != max) || (array[i] == max && indexOFfirstMax != i)) secondMax = array[i];
+            if ((array[i] > secondMax && array[i] != max) || (array[i] == max && indexOFfirstMax != i)) secondMax = array[i]; // checking whether it's second max or there is more than one value same as max.
         }
         return secondMax;
     }
