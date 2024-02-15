@@ -1,6 +1,6 @@
 public class ArrayOps {
     public static void main(String[] args) {
-        int [] a = {1};
+        int [] a = {3, 3, 3, 1, 2, 3};
         System.out.println(isSorted(a));
         //System.out.println(secondMaxValue(a));
     }
@@ -32,7 +32,8 @@ public class ArrayOps {
             }
         }
         for (int i = 1; i < array.length; i++) {
-            if ((array[i] > secondMax && array[i] != max) || (array[i] == max && indexOFfirstMax != i)) secondMax = array[i]; // checking whether it's second max or there is more than one value same as max.
+            if ((array[i] > secondMax && array[i] != max) || (array[i] == max && indexOFfirstMax != i)) 
+                secondMax = array[i]; // checking whether it's second max or there is more than one value same as max.
         }
         return secondMax;
     }
@@ -56,7 +57,9 @@ public class ArrayOps {
     public static boolean isSorted(int [] array) {
         if (array.length < 3) return true; // if the array has two values or one it's sorted.
         int count = 0;
-        for(int i = 0; i < array.length - 1; i++) if(array[i] == array[i + 1]) count++;
+        for(int i = 0; i < array.length - 1; i++)
+            if(array[i] == array[i + 1]) count++;
+            
         if (count == array.length - 1) return true; // Checking if the given array has only one value
         else if (array[count] > array[count + 1]){
             for (int i = count + 1; i < array.length - 1; i++)

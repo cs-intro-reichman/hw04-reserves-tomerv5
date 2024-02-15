@@ -27,6 +27,15 @@ public class StringOps {
 
     }
 
+    public static String noSpacesstring(String string) {
+        String newString = "";
+        for (int i = 0; i < string.length(); i++) {
+            if (string.charAt(i) != ' ')
+                newString += string.charAt(i);
+        }
+        return newString;
+    }
+
     public static String lowCharstring(String string) {
         String newStringlow = "";
         for (int i = 0; i < string.length(); i++) {
@@ -37,15 +46,6 @@ public class StringOps {
         }
         return newStringlow;
 
-    }
-
-    public static String noSpacesstring(String string) {
-        String newString = "";
-        for (int i = 0; i < string.length(); i++) {
-            if (string.charAt(i) != ' ')
-                newString += string.charAt(i);
-        }
-        return newString;
     }
 
     public static String capVowelsLowRest(String string) {
@@ -65,14 +65,15 @@ public class StringOps {
         String newStringlow = lowCharstring(string);
         String newStringcap = "";
         for (int i = 0; i < newStringlow.length(); i++) {
-            if ((newStringlow.charAt(i) == ' ' && i != newStringlow.length() - 1) && (newStringlow.charAt(i + 1) >= 'a' && newStringlow.charAt(i + 1) <= 'z')){
+            if ((newStringlow.charAt(i) == ' ' && i != newStringlow.length() - 1) //checking if it's space and not last char.
+                && (newStringlow.charAt(i + 1) >= 'a' && newStringlow.charAt(i + 1) <= 'z')){ //and making sure its low case
                 newStringcap += (char) (newStringlow.charAt(i + 1) - 32);
                 i++;
             }
             else newStringcap += newStringlow.charAt(i);
         }
-        newStringcap = noSpacesstring(newStringcap);
-        if(newStringcap.charAt(0) >= 'A' && newStringcap.charAt(0) <= 'Z')
+        newStringcap = noSpacesstring(newStringcap);  //removing spaces
+        if(newStringcap.charAt(0) >= 'A' && newStringcap.charAt(0) <= 'Z') //handling the first letter if it remains capital because of spaces before the first word
             newStringcap = (char) (newStringcap.charAt(0)  +32) + newStringcap.substring(1);
         
         return newStringcap;
